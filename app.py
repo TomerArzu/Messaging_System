@@ -33,5 +33,4 @@ api.add_resource(Message, '/api/user/message')
 api.add_resource(Messages, '/api/user/messages')
 
 if __name__ == "__main__":
-    db.init_app(app)
     app.run(port=5002, debug=True)
