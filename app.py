@@ -21,12 +21,6 @@ jwt = JWTManager(app)
 
 
 
-
-@app.before_request
-def create_tables():
-    db.create_all()
-
-
 api.add_resource(UserRegister, '/signup')
 api.add_resource(UserLogin, '/login')
 api.add_resource(Users, '/api/users')
@@ -35,5 +29,7 @@ api.add_resource(Message, '/api/user/message')
 api.add_resource(Messages, '/api/user/messages')
 
 if __name__ == "__main__":
+    from db import db
+    db.init_app(app)
 
     app.run(port=5000, debug=True)
