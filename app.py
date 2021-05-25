@@ -6,7 +6,6 @@ from flask_jwt_extended import JWTManager
 # for jwt
 from Resources.user import User, UserRegister, Users, UserLogin
 from Resources.message import Message, Messages
-from db import db
 
 app = Flask(__name__)
 api = Api(app)
