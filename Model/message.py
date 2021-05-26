@@ -1,5 +1,5 @@
 
-from base import BaseModel, db
+from Model.base import BaseModel, db
 
 class MessageModel(db.Model, BaseModel):
     __tablename__ = 'Messages'
