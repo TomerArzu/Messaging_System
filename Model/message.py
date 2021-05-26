@@ -1,5 +1,5 @@
-
 from Model.base import BaseModel, db
+
 
 class MessageModel(db.Model, BaseModel):
     __tablename__ = 'Messages'
@@ -49,10 +49,10 @@ class MessageModel(db.Model, BaseModel):
         db.session.commit()
 
     def json(self):
-        return {'id': self.id,
-                'sender': self.sender,
-                'receiver': self.receiver_id,
-                'creation_date': self.creation_date.strftime("%m/%d/%Y, %H:%M:%S"),
-                'is_read': self.is_read,
-                'subject': self.subject,
-                'content': self.content}
+        return {'Message': {'id': self.id,
+                            'sender': self.sender,
+                            'receiver': self.receiver_id,
+                            'creation_date': self.creation_date.strftime("%m/%d/%Y, %H:%M:%S"),
+                            'is_read': self.is_read,
+                            'subject': self.subject,
+                            'content': self.content}}

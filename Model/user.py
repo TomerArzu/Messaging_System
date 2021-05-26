@@ -35,5 +35,5 @@ class UserModel(db.Model, BaseModel):
 
     # return json representation of User
     def json(self):
-        return {'id': self.id,
-                'username': self.username}
+        return {'User': {'id': self.id,
+                         'username': self.username}}

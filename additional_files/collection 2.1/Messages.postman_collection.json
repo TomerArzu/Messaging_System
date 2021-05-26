@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "ee49a41b-ed4a-4ef1-b423-37f1359e6fe3",
+		"name": "Messages",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user/message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjIyMDQxMzc0LCJqdGkiOiI5OWM5ZTNmNy05YWVjLTQwNmItYWNiYi01ZGI5MTRkYmVjNjciLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2MjIwNDEzNzQsImV4cCI6MTYyMjA0MjI3NH0.i5HwkHZcV-TiI4-CSdK0w2F1BtjN_a5Eu5sYbi901mk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"receiver\":1,\r\n    \"subject\":\"hello 2 you\",\r\n    \"content\":\"you're wellcome\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/message",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"message"
+					]
+				},
+				"description": "{\n    \"sender\":,\n    \"receiver\":,\n    \"subject\":,\n    \"content\":\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "/user/messages?unread=<boolean>",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjIyMDM5MTU5LCJqdGkiOiJhYmM4NDA2My1lNWE4LTQ3YTYtYmM3OC02OTIxNDAwMDdhZjMiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoyLCJuYmYiOjE2MjIwMzkxNTksImV4cCI6MTYyMjA0MDA1OX0.abzMwjiu00WL35RDT5_zhhOclFVgc97hpJAsh7Gw1ZE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/messages",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"messages"
+					]
+				},
+				"description": "{\n    \"sender\":,\n    \"receiver\":,\n    \"subject\":,\n    \"content\":\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "/user/message",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjIxODg5Mjc1LCJqdGkiOiI2NmMxNzhkYS03MzU4LTQyMzktOWQ2OC1lODg3MzJlODU0NDQiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2MjE4ODkyNzUsImV4cCI6MTYyMTg5MDE3NX0.2AQdvz0YXZBq7y-74o9OoKKUEiiGjj5XavKmc3ffVUc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjIxODg4NDI5LCJqdGkiOiI3ODEwYTc0YS05M2Q2LTQxNWUtODIzYi1kZDMyMWRmYTYxMzkiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2MjE4ODg0MjksImV4cCI6MTYyMTg4OTMyOX0.phEyWsch-tIzojFkfxt-Yy5XLmxgdBU02Kf2nENTfTc",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sender\":1,\r\n    \"receiver\":2,\r\n    \"subject\":\"hello you\",\r\n    \"content\":\"what up?\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/message?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"message"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "{\n    \"sender\":,\n    \"receiver\":,\n    \"subject\":,\n    \"content\":\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "/user/message?id=<int:id>",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjIyMDM5MTU5LCJqdGkiOiJhYmM4NDA2My1lNWE4LTQ3YTYtYmM3OC02OTIxNDAwMDdhZjMiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoyLCJuYmYiOjE2MjIwMzkxNTksImV4cCI6MTYyMjA0MDA1OX0.abzMwjiu00WL35RDT5_zhhOclFVgc97hpJAsh7Gw1ZE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/message?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"message"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "{\n    \"sender\":,\n    \"receiver\":,\n    \"subject\":,\n    \"content\":\n}"
+			},
+			"response": []
+		}
+	]
+}
