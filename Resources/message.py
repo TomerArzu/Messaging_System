@@ -39,7 +39,7 @@ class Message(Resource):
                 new_msg.save_to_db()
             else:
                 return {'message': 'you try to send to un-exist user, try again'}, 400
-            return {'message': "message sent!", "message_id": f"{new_msg.json()['id']}"}
+            return {'message': "message sent!", "message_id": f"{new_msg.json()['Message']['id']}"}
         return {'message': 'user did not found'}, 404
 
     # DELETE
@@ -72,16 +72,16 @@ class Messages(Resource):
             unread = bool(request.args.get('unread')) if request.args.get('unread') else False
             if unread:
                 return {'unread messages': {'Total': user.messages.filter_by(is_read=False).count(),
-                                            'messages id': list(map((lambda message: {'id': message.json()['id'],
-                                                                                      'sender': message.json()[
+                                            'messages id': list(map((lambda message: {'id': message.json()['Message']['id'],
+                                                                                      'sender': message.json()['Message'][
                                                                                           'sender'],
-                                                                                      'sent date': message.json()[
+                                                                                      'sent date': message.json()['Message'][
                                                                                           'creation_date']}),
                                                                     user.messages.filter_by(is_read=False).all()))}}
             else:
                 return {'all messages': {'Total': user.messages.count(),
-                                         'messages': list(map((lambda message: {'id': message.json()['id'],
-                                                                                'sender': message.json()['sender'],
-                                                                                'sent date': message.json()[
+                                         'messages': list(map((lambda message: {'id': message.json()['Message']['id'],
+                                                                                'sender': message.json()['Message']['sender'],
+                                                                                'sent date': message.json()['Message'][
                                                                                     'creation_date']}),
                                                               user.messages.all()))}}
