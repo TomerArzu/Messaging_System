@@ -11,7 +11,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messaging_system.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 jwt = JWTManager(app)
-jwt._set_error_handler_callbacks(api)
 
 api.add_resource(UserRegister, '/signup')
 api.add_resource(UserLogin, '/login')
