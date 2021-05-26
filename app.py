@@ -6,10 +6,7 @@ from Resources.message import Message, Messages
 
 app = Flask(__name__)
 api = Api(app)
-# todo: put in os env variables on heruko
 app.secret_key = 'tomer_arzuan'
-# configs for application
-# track of modification that we do in db session but we already have a modification tracker in flask_sqlAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messaging_system.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

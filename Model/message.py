@@ -1,8 +1,7 @@
 
-from db import db
+from base import BaseModel, db
 
-
-class MessageModel(db.Model):
+class MessageModel(db.Model, BaseModel):
     __tablename__ = 'Messages'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -13,11 +12,6 @@ class MessageModel(db.Model):
 
     receiver_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
     receiver = db.relationship('UserModel')
-    # receiver_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
-    # receiver = db.relationship('UserModel')
-
-    # todo: solve the two foreign keys
-    # receiver = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     sender = db.Column(db.Integer)
 
     def __init__(self, sender, receiver_id, creation_date, is_read, subject, content, _id=None):
@@ -31,7 +25,6 @@ class MessageModel(db.Model):
 
     @classmethod
     def get_by_id(cls, msg_id):
-        # MessageModel.query.filter_by(arg1=arg1).filter_by(arg2=arg2)...
         return cls.query.filter_by(id=msg_id).first()
 
     @classmethod
@@ -47,7 +40,6 @@ class MessageModel(db.Model):
     def unread_messages(cls, sender):
         return cls.query.filter_by(sender=sender).filter_by(is_read=False).all()
 
-    # saves (update or insert) MassageModel to DB
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
@@ -56,7 +48,6 @@ class MessageModel(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-    # dictionary representation of the model (static)
     def json(self):
         return {'id': self.id,
                 'sender': self.sender,

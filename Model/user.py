@@ -1,23 +1,18 @@
-from db import db
+from base import BaseModel, db
 
 
-class UserModel(db.Model):
+class UserModel(db.Model, BaseModel):
     __tablename__ = 'Users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50))
     password = db.Column(db.String(10))
-
-    messages = db.relationship('MessageModel', lazy= 'dynamic')
-    # receiver_message = db.relationship('MessageModel')
-    # messages_senders = db.relationship('MessageModel', backref='sender', lazy=True)
-    # messages_receivers = db.relationship('MessageModel', backref='receiver')
+    messages = db.relationship('MessageModel', lazy='dynamic')
 
     def __init__(self, username, password, _id=None):
         self.id = _id
         self.username = username
         self.password = password if password else None
 
-    # insert new user to db
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
