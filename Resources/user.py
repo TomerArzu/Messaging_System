@@ -1,12 +1,7 @@
 from flask_restful import Resource
 from flask import request
 from flask_restful import reqparse
-from flask_jwt_extended import (
-    create_access_token,
-    create_refresh_token,
-    get_jwt_identity,
-    jwt_required
-)
+from flask_jwt_extended import create_access_token
 
 from Model.user import UserModel
 
@@ -53,6 +48,7 @@ class UserLogin(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('username', type=str, required=True, help="This field cannot be blank.")
     parser.add_argument('password', type=str, required=True, help="This field cannot be blank.")
+
     @classmethod
     def post(cls):
         data = cls.parser.parse_args()
